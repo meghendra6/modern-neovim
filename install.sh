@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 MODERN_NEOVIM=~/.config/modern-neovim
 export MODERN_NEOVIM

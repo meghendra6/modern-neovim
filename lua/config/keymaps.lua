@@ -1,4 +1,14 @@
 local keymap = vim.keymap.set
+local default_opts = { noremap = true, silent = true }
+local expr_opts = { noremap = true, expr = true, silent = true }
+
+-- Better escape using jk in insert and terminal mode
+keymap("i", "jk", "<ESC>", default_opts)
+keymap("t", "jk", "<C-\\><C-n>", default_opts)
+
+-- Center search results
+keymap("n", "n", "nzz", default_opts)
+keymap("n", "N", "Nzz", default_opts)
 
 -- Remap for dealing with word wrap
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
@@ -43,3 +53,14 @@ keymap("n", "<S-Up>", "<cmd>resize +2<CR>")
 keymap("n", "<S-Down>", "<cmd>resize -2<CR>")
 keymap("n", "<S-Left>", "<cmd>vertical resize -2<CR>")
 keymap("n", "<S-Right>", "<cmd>vertical resize +2<CR>")
+
+-- Switch buffer
+keymap("n", "<S-h>", ":bprevious<CR>", default_opts)
+keymap("n", "<S-l>", ":bnext<CR>", default_opts)
+
+-- Cancel search highlighting with ESC
+keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_opts)
+
+-- Move selected line / block of text in visual mode
+keymap("x", "K", ":move '<-2<CR>gv-gv", default_opts)
+keymap("x", "J", ":move '>+1<CR>gv-gv", default_opts)

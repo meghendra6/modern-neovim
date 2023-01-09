@@ -23,6 +23,16 @@ return {
 
       require("nvim-treesitter.configs").setup {
         ensure_installed = {
+          "c",
+          "cmake",
+          "cpp",
+          "dockerfile",
+          "git_rebase",
+          "glsl",
+          "gitattributes",
+          "gitcommit",
+          "gitignore",
+          "go",
           "bash",
           "help",
           "html",

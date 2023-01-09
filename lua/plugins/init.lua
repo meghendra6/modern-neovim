@@ -49,4 +49,39 @@ return {
       vim.api.nvim_set_keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
     end,
   },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  },
+  -- Status line
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("config.lualine").setup()
+    end,
+  },
+  {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  },
+
+
+  -- Better icons
+  {
+    "nvim-tree/nvim-web-devicons",
+    module = "nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup { default = true }
+    end,
+  },
+
+
 }

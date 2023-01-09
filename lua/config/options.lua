@@ -1,7 +1,7 @@
 local indent = 2
 
 vim.o.formatoptions = "jcroqlnt"
-vim.o.shortmess = "filnxtToOFWIcC"
+-- vim.o.shortmess = "filnxtToOFWIcC"
 vim.opt.breakindent = true
 vim.opt.cmdheight = 0
 vim.opt.completeopt = "menuone,noselect"
@@ -31,7 +31,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.splitbelow = true
-vim.opt.splitkeep = "screen"
+-- vim.opt.splitkeep = "screen"
 vim.opt.splitright = true
 vim.opt.tabstop = indent
 vim.opt.termguicolors = true
