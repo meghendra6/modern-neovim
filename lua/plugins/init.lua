@@ -67,6 +67,7 @@ return {
     config = function()
       require("config.lualine").setup()
     end,
+    requires = { "nvim-web-devicons" },
   },
   {
     "SmiteshP/nvim-navic",
