@@ -71,6 +71,10 @@ return {
   },
   {
     "SmiteshP/nvim-navic",
+    config = function()
+        require("nvim-navic").setup {}
+    end,
+    module = { "nvim-navic" },
     requires = "neovim/nvim-lspconfig"
   },
 
@@ -84,5 +88,13 @@ return {
     end,
   },
 
+  -- Buffer line
+  {
+    "akinsho/nvim-bufferline.lua",
+    event = "BufReadPre",
+    config = function()
+      require("config.bufferline").setup()
+    end,
+  }
 
 }
