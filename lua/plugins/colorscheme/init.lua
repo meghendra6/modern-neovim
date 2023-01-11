@@ -5,8 +5,8 @@ return {
     config = function()
       require("styler").setup {
         themes = {
-          markdown = { colorscheme = "gruvbox" },
-          help = { colorscheme = "gruvbox" },
+          markdown = { colorscheme = "tokyonight" },
+          help = { colorscheme = "tokyonight" },
         },
       }
     end,

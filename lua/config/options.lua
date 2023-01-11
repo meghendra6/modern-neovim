@@ -18,7 +18,6 @@ opt.hlsearch = true
 opt.ignorecase = true
 opt.inccommand = "nosplit"
 opt.joinspaces = false
-opt.laststatus = 0
 opt.list = true
 opt.mouse = "a"
 opt.number = true
@@ -45,10 +44,21 @@ opt.updatetime = 200
 opt.wildmode = "longest:full,full"
 opt.cmdheight = 1
 opt.clipboard = "unnamedplus" -- Access system clipboard
+opt.scrollback = 100000
+opt.smarttab = true
+opt.laststatus = 3 -- Global statusline
+opt.autoindent = true
+opt.textwidth = 0
 
 g.mapleader = " "
 g.maplocalleader = ","
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- go to previous/next line with h,l,left arrow and right arrow when cursor reaches end/beginning of line
+opt.whichwrap:append "<>[]hl"
+
+-- disable nvim intro
+opt.shortmess:append "sI"
 
 -- Highlight on yank
 vim.cmd [[
@@ -62,9 +72,22 @@ opt.wildignorecase = true
 opt.wildignore:append "**/node_modules/*"
 opt.wildignore:append "**/.git/*"
 
+-- Better search
+opt.path:remove "/usr/include"
+opt.path:append "**"
+-- vim.cmd [[set path=.,,,$PWD/**]] -- Set the path directly
+
 -- Better Netrw, alternatively just use vinegar.vim
 -- g.netrw_banner = 0 -- Hide banner
 -- g.netrw_browse_split = 4 -- Open in previous window
 -- g.netrw_altv = 1 -- Open with right splitting
 -- g.netrw_liststyle = 3 -- Tree-style view
 -- g.netrw_list_hide = (vim.fn["netrw_gitignore#Hide"]()) .. [[,\(^\|\s\s\)\zs\.\S\+]] -- use .gitignore
+
+-- GUI
+opt.guifont = "Fira_Code:h14"
+
+if g.neovide then
+  g.neovide_transparency = 0.9
+  g.neovide_fullscreen = true
+end
