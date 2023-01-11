@@ -17,7 +17,8 @@ local servers = {
 
 function M.setup()
   -- null-ls
-  require("plugins.lsp.null-ls").setup(opts)
+-- TODO: enable null-ls
+--  require("plugins.lsp.null-ls").setup(opts)
 
   -- Installer
   require("plugins.lsp.installer").setup(servers, opts)
