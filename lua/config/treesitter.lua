@@ -48,9 +48,9 @@ function M.setup()
     indent = { enable = true, disable = { "python", "java", "rust", "lua" } },
 
     -- vim-matchup
-    matchup = {
-      enable = true,
-    },
+    --matchup = {
+    --  enable = true,
+    --},
 
     -- nvim-treesitter-textsubjects
     textsubjects = {

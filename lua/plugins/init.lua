@@ -25,19 +25,19 @@ return {
         },
       }
     end,
-    disable = false,
+    enabled = true,
   },
   {
     "ray-x/guihua.lua",
     run = "cd lua/fzy && make",
-    disable = true,
+    enabled = false,
   },
   {
     "doums/suit.nvim",
     config = function()
       require("suit").setup {}
     end,
-    disable = true,
+    enabled = false,
   },
 
   {
@@ -159,14 +159,14 @@ return {
       --     require("spellsitter").setup()
       --   end,
       -- },
-      { "nvim-treesitter/nvim-treesitter-context", event = "BufReadPre", disable = true },
-      { "mfussenegger/nvim-treehopper", module = { "tsht" }, disable = true },
+      { "nvim-treesitter/nvim-treesitter-context", event = "BufReadPre", enabled = false },
+      { "mfussenegger/nvim-treehopper", module = { "tsht" }, enabled = false },
       {
         "m-demare/hlargs.nvim",
         config = function()
           require("config.hlargs").setup()
         end,
-        disable = false,
+        enabled = true,
       },
       {
         "AckslD/nvim-FeMaco.lua",
@@ -176,7 +176,7 @@ return {
         ft = { "markdown" },
         cmd = { "Femaco" },
         module = { "femaco_edit" },
-        disable = true,
+        enabled = false,
       },
       -- { "yioneko/nvim-yati", event = "BufReadPre" },
     },
@@ -244,12 +244,11 @@ return {
   -- Sidebar
   {
     "liuchengxu/vista.vim",
-    event = "VeryLazy",
     cmd = { "Vista" },
     config = function()
       vim.g.vista_default_executive = "nvim_lsp"
     end,
-    disable = true,
+    enabled = false,
   },
   {
     "sidebar-nvim/sidebar.nvim",
@@ -278,6 +277,7 @@ return {
   -- Harpoon
   {
     "ThePrimeagen/harpoon",
+    event = "VeryLazy",
     module = {
       "harpoon",
       "harpoon.cmd-ui",
@@ -300,18 +300,18 @@ return {
       require("config.refactoring").setup()
     end,
   },
-  { "python-rope/ropevim", build = "pip3 install ropevim", disable = true },
+  { "python-rope/ropevim", build = "pip3 install ropevim", enabled = false },
   {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
-    disable = false,
+    enabled = true,
     config = function()
       require("bqf").setup()
     end,
   },
   { "kevinhwang91/nvim-hlslens",
     event = "BufReadPre",
-    disable = true,
+    enabled = false,
     config = function()
       require('hlslens').setup()
     end,
@@ -391,7 +391,7 @@ return {
     config = function()
       require("octo").setup()
     end,
-    disable = false,
+    enabled = true,
   },
   {
     "akinsho/git-conflict.nvim",
@@ -415,14 +415,8 @@ return {
     cmd = { "GitBlameToggle" }
   },
   {
-    "tanvirtin/vgit.nvim",
-    config = function()
-      require("vgit").setup()
-    end,
-    cmd = { "VGit" },
-  },
-  {
     "knsh14/vim-github-link",
+    event = "VeryLazy",
     cmd = { "GetCommitLink",
       "GetCurrentBranchLink",
       "GetCurrentCommitLink" }
@@ -438,6 +432,89 @@ return {
     cmd = { "Gist" },
     config = function()
       vim.g.gist_open_browser_after_post = 1
+    end,
+  },
+
+  -- Terminal
+  {
+    "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
+    keys = { [[<C-\>]] },
+    cmd = { "ToggleTerm", "TermExec" },
+    module = { "toggleterm", "toggleterm.terminal" },
+    config = function()
+      require("config.toggleterm").setup()
+    end,
+  },
+
+    -- Motions
+  {
+    "andymass/vim-matchup",
+    event = "CursorMoved",
+    enabled = false,
+  },
+  {
+    "wellle/targets.vim",
+    event = "CursorMoved",
+    enabled = true
+  },
+  {
+    "unblevable/quick-scope",
+    event = "VeryLazy",
+    keys = { "F", "f", "T", "t" },
+    -- config = function()
+    --   vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
+    -- end,
+    enabled = true,
+  },
+  {
+    "jinh0/eyeliner.nvim",
+    keys = { "F", "f", "T", "t" },
+    config = function()
+      require("eyeliner").setup {
+        highlight_on_key = true,
+      }
+    end,
+    enabled = false,
+  },
+  {
+    "chaoren/vim-wordmotion",
+    event = "VeryLazy",
+    opt = true,
+    fn = { "<Plug>WordMotion_w" }
+  },
+
+  -- Buffer
+  {
+    "kazhala/close-buffers.nvim",
+    event = "VeryLazy",
+    cmd = { "BDelete", "BWipeout" }
+  },
+  {
+    "matbme/JABS.nvim",
+    event = "VeryLazy",
+    cmd = "JABSOpen",
+    config = function()
+      require("config.jabs").setup()
+    end,
+    enabled = true,
+  },
+  {
+    "chentoast/marks.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("marks").setup {}
+    end,
+  },
+
+  -- Auto pairs
+  {
+    "windwp/nvim-autopairs",
+    opt = true,
+    event = "InsertEnter",
+    module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
+    config = function()
+      require("config.autopairs").setup()
     end,
   },
 
