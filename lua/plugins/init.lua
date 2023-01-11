@@ -518,4 +518,26 @@ return {
     end,
   },
 
+  -- Jumps
+  -- change default key 's' to '<leader>s' in /Users/scottlee/.config/modern-neovim/share/nvim/lazy/leap.nvim/lua/leap
+  {
+    "ggandor/leap.nvim",
+    keys = { "<C-s>", "S" },
+    config = function()
+      local leap = require "leap"
+      leap.add_default_mappings()
+    end,
+    disable = false,
+  },
+  {
+    "abecodes/tabout.nvim",
+    after = { "nvim-cmp" },
+    config = function()
+      require("tabout").setup {
+        completion = false,
+        ignore_beginning = true,
+      }
+    end,
+  },
+  { "AndrewRadev/splitjoin.vim", keys = { "gS", "gJ" }, enabled = true },
 }
