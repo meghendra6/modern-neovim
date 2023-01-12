@@ -70,8 +70,10 @@ end
 function M.get_winbar()
   if navic.is_available() then
     -- return get_modified() .. get_location()
+    print("AAAAAA")
     return get_modified() .. get_custom_location()
   else
+    print("BBBBBB")
     return get_modified()
   end
 end

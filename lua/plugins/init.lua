@@ -93,15 +93,6 @@ return {
     end,
     dependencies = { "nvim-web-devicons" },
   },
-  {
-    "SmiteshP/nvim-navic",
-    config = function()
-        require("nvim-navic").setup {}
-    end,
-    module = { "nvim-navic" },
-    dependencies = "neovim/nvim-lspconfig"
-  },
-
 
   -- Better icons
   {
@@ -600,6 +591,29 @@ return {
     end,
     cmd = { "DogeGenerate", "DogeCreateDocStandard" },
     enabled = true,
+  },
+
+  -- Rust
+  {
+    "simrat39/rust-tools.nvim",
+    requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
+    opt = true,
+    module = "rust-tools",
+    ft = { "rust" },
+  },
+  {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    requires = { { "nvim-lua/plenary.nvim" } },
+    config = function()
+      require("crates").setup {
+        null_ls = {
+          enabled = true,
+          name = "crates.nvim",
+        },
+      }
+    end,
+    disable = false,
   },
 
 

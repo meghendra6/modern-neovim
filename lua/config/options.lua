@@ -50,6 +50,8 @@ opt.laststatus = 3 -- Global statusline
 opt.autoindent = true
 opt.textwidth = 0
 
+g.airline_powerline_fonts = 1
+-- opt.encoding=utf8
 g.mapleader = " "
 g.maplocalleader = ","
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })

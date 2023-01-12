@@ -1,6 +1,6 @@
 local M = {}
 
-local nls_utils = require "config.lsp.null-ls.utils"
+local nls_utils = require "plugins.lsp.null-ls.utils"
 local nls_sources = require "null-ls.sources"
 
 local method = require("null-ls").methods.DIAGNOSTICS
