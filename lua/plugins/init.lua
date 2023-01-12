@@ -604,7 +604,7 @@ return {
   {
     "saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
-    requires = { { "nvim-lua/plenary.nvim" } },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()
       require("crates").setup {
         null_ls = {
@@ -616,5 +616,11 @@ return {
     disable = false,
   },
 
+  -- Tags
+  {
+    "ludovicchabant/vim-gutentags",
+    event = "VeryLazy",
+    opt = true,
+  },
 
 }
