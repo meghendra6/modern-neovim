@@ -98,6 +98,7 @@ function M.on_attach(client, bufnr)
   -- if caps.definitionProvider then
   --   vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
   -- end
+     vim.bo[bufnr].tagfunc = ""
 
   -- sqls
   if client.name == "sqls" then
