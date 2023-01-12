@@ -95,9 +95,9 @@ function M.on_attach(client, bufnr)
   require("plugins.lsp.null-ls.formatters").setup(client, bufnr)
 
   -- tagfunc
-  if caps.definitionProvider then
-    vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
-  end
+  -- if caps.definitionProvider then
+  --   vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
+  -- end
 
   -- sqls
   if client.name == "sqls" then
