@@ -539,5 +539,68 @@ return {
       }
     end,
   },
-  { "AndrewRadev/splitjoin.vim", keys = { "gS", "gJ" }, enabled = true },
+  {
+    "AndrewRadev/splitjoin.vim",
+    keys = { "gS", "gJ" },
+    enabled = true
+  },
+
+  -- Completion
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    opt = true,
+    config = function()
+      require("config.cmp").setup()
+    end,
+    dependencies = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lua",
+      "ray-x/cmp-treesitter",
+      "hrsh7th/cmp-cmdline",
+      "saadparwaiz1/cmp_luasnip",
+      { "hrsh7th/cmp-nvim-lsp", module = { "cmp_nvim_lsp" } },
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "lukas-reineke/cmp-rg",
+      "davidsierradz/cmp-conventionalcommits",
+      { "onsails/lspkind-nvim", module = { "lspkind" } },
+      -- "hrsh7th/cmp-calc",
+      -- "f3fora/cmp-spell",
+      -- "hrsh7th/cmp-emoji",
+      {
+        "L3MON4D3/LuaSnip",
+        config = function()
+          require("config.snip").setup()
+        end,
+        module = { "luasnip" },
+      },
+      "rafamadriz/friendly-snippets",
+      "honza/vim-snippets",
+      { "tzachar/cmp-tabnine", build = "./install.sh", enabled = false },
+    },
+  },
+
+  -- Code documentation
+  {
+    "danymat/neogen",
+    config = function()
+      require("config.neogen").setup()
+    end,
+    cmd = { "Neogen" },
+    module = "neogen",
+    enabled = true,
+  },
+
+  {
+    "kkoomen/vim-doge",
+    run = ":call doge#install()",
+    config = function()
+      require("config.doge").setup()
+    end,
+    cmd = { "DogeGenerate", "DogeCreateDocStandard" },
+    enabled = true,
+  },
+
+
 }
