@@ -1,16 +1,16 @@
 return {
-  {
-    "folke/styler.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("styler").setup {
-        themes = {
-          markdown = { colorscheme = "tokyonight" },
-          help = { colorscheme = "tokyonight" },
-        },
-      }
-    end,
-  },
+--  {
+--    "folke/styler.nvim",
+--    event = "VeryLazy",
+--    config = function()
+--      require("styler").setup {
+--        themes = {
+--          markdown = { colorscheme = "tokyonight" },
+--          help = { colorscheme = "tokyonight" },
+--        },
+--      }
+--    end,
+--  },
   {
     "folke/tokyonight.nvim",
     lazy = false,

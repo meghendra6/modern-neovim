@@ -165,6 +165,7 @@ function M.setup()
         base_dirs = {
           '~/work/server2/sapeon_sdk/',
           '~/work/server2/sapeon_sdk/SapeonRT/',
+          '/Users/scottlee/work/server2/sapeon_sdk/sapeon_compiler',
         },
         hidden_files = false,
         theme = "dropdown",

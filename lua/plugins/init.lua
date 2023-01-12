@@ -243,7 +243,7 @@ return {
   },
   {
     "sidebar-nvim/sidebar.nvim",
-    event = "VeryLazy",
+    event = "VimEnter",
     cmd = { "SidebarNvimToggle" },
     config = function()
       require("sidebar-nvim").setup { open = false }
@@ -254,7 +254,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("aerial").setup {
-        backends = { "treesitter", "lsp" },
+        backends = {"lsp", "treesitter" },
         on_attach = function(bufnr)
           vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
           vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
@@ -398,6 +398,7 @@ return {
     },
     config = function()
       require("git-conflict").setup()
+      vim.g.gitblame_enabled = 0
     end,
   },
   {
