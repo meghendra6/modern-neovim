@@ -38,7 +38,8 @@ function M.setup(servers, server_options)
       lspconfig[server_name].setup(opts)
     end,
     ["clangd"] = function()
-        -- empty
+      local opts = vim.tbl_deep_extend("force", server_options, servers["clangd"] or {})
+      lspconfig.clangd.setup(opts)
     end,
     ["jdtls"] = function()
       -- print "jdtls is handled by nvim-jdtls"
