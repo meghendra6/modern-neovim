@@ -32,6 +32,7 @@ local function keymappings(client, bufnr)
       n = { "<cmd>lua require('renamer').rename()<CR>", "Rename" },
       r = { "<cmd>lua require('telescope.builtin').lsp_references()<CR>", "References" },
       s = { "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", "Document Symbols" },
+      S = { "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>", "Dynamic Symbols" },
       t = { "<cmd>TroubleToggle document_diagnostics<CR>", "Trouble" },
       L = { "<cmd>lua vim.lsp.codelens.refresh()<CR>", "Refresh CodeLens" },
       l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "Run CodeLens" },
