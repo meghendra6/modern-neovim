@@ -11,16 +11,16 @@ return {
       }
     end,
   },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      local tokyonight = require "tokyonight"
-      tokyonight.setup { style = "storm" }
-      tokyonight.load()
-    end,
-  },
+--  {
+--    "folke/tokyonight.nvim",
+--    lazy = false,
+--    priority = 1000,
+--    config = function()
+--      local tokyonight = require "tokyonight"
+--      tokyonight.setup { style = "moon" }
+--      tokyonight.load()
+--    end,
+--  },
   {
     "catppuccin/nvim",
     lazy = false,
@@ -33,6 +33,14 @@ return {
     priority = 1000,
     config = function()
       require("gruvbox").setup()
+    end,
+  },
+  {
+    "Everblush/everblush.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("everblush").setup({ nvim_tree = { contrast = true } })
     end,
   },
 }
