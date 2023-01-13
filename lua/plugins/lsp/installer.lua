@@ -38,6 +38,7 @@ function M.setup(servers, server_options)
       lspconfig[server_name].setup(opts)
     end,
     ["clangd"] = function()
+      server_options.capabilities.offsetEncoding = { "utf-16" }
       local opts = vim.tbl_deep_extend("force", server_options, servers["clangd"] or {})
       lspconfig.clangd.setup(opts)
     end,
