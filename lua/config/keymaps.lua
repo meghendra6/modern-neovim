@@ -64,3 +64,7 @@ keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_opts)
 -- Move selected line / block of text in visual mode
 keymap("x", "K", ":move '<-2<CR>gv-gv", default_opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", default_opts)
+
+-- Treesitter
+keymap("n", "gd", "<cmd>Telescope lsp_definitions<cr>")
+keymap("n", "gr", "<cmd>Telescope lsp_references<cr>")
