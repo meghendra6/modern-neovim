@@ -176,17 +176,6 @@ function M.setup()
   -- require("plugins.lsp.inlay-hints").setup()
 end
 
-local diagnostics_active = true
-
-function M.toggle_diagnostics()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
-end
-
 function M.remove_unused_imports()
   vim.diagnostic.setqflist { severity = vim.diagnostic.severity.WARN }
   vim.cmd "packadd cfilter"
