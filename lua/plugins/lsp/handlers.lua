@@ -57,4 +57,15 @@ function M.setup()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, config.float)
 end
 
+local diagnostics_active = true
+
+function M.toggle_diagnostics()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end
+
 return M
