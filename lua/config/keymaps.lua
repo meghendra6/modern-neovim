@@ -68,3 +68,13 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 -- Treesitter
 keymap("n", "gd", "<cmd>Telescope lsp_definitions<cr>")
 keymap("n", "gr", "<cmd>Telescope lsp_references<cr>")
+
+-- Tags to st
+keymap("n", "<C-]>", "g<C-]>")
+
+-- Home and End
+keymap("n", "<Home>", "0")
+keymap("i", "<Home>", "<ESC>0i")
+keymap("n", "<End>", "$")
+keymap("i", "<End>", "<ESC>$a")
+

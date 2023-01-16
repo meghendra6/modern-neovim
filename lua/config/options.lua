@@ -20,6 +20,7 @@ opt.inccommand = "nosplit"
 opt.joinspaces = false
 opt.list = true
 -- opt.mouse = "a"
+opt.mouse = ""
 opt.number = true
 opt.pumblend = 10
 opt.pumheight = 10

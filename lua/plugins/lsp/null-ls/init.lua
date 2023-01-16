@@ -20,6 +20,10 @@ end
 
 local sources = {
   -- formatting
+  b.formatting.clang_format,
+  b.formatting.clang_format.with {
+    filetypes = { "cpp", "c", "cc" },
+  },
   b.formatting.prettierd,
   b.formatting.shfmt,
   b.formatting.shellharden,
@@ -31,6 +35,7 @@ local sources = {
   -- with_root_file(b.formatting.stylua, "stylua.toml"),
 
   -- diagnostics
+  b.diagnostics.clang_check,
   b.diagnostics.write_good,
   b.diagnostics.eslint_d,
   -- b.diagnostics.markdownlint,
