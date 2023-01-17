@@ -472,7 +472,6 @@ return {
   {
     "chaoren/vim-wordmotion",
     event = "VeryLazy",
-    opt = true,
     fn = { "<Plug>WordMotion_w" }
   },
 
@@ -621,7 +620,9 @@ return {
   {
     "ludovicchabant/vim-gutentags",
     event = "VeryLazy",
-    opt = true,
   },
-
+  {
+    "lyuts/vim-rtags",
+    event = "VeryLazy",
+  },
 }
