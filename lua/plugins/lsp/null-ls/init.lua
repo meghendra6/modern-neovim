@@ -35,7 +35,6 @@ local sources = {
   -- with_root_file(b.formatting.stylua, "stylua.toml"),
 
   -- diagnostics
-  b.diagnostics.clang_check,
   b.diagnostics.write_good,
   b.diagnostics.eslint_d,
   -- b.diagnostics.markdownlint,

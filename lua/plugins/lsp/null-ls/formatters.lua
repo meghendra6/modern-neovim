@@ -42,16 +42,17 @@ end
 function M.setup(client, bufnr)
   local filetype = api.nvim_buf_get_option(bufnr, "filetype")
 
-  local enable = false
-  if M.has_formatter(filetype) then
-    enable = client.name == "null-ls"
-  else
-    enable = not (client.name == "null-ls")
-  end
+  -- Disable to check clien.name
+  -- local enable = false
+  -- if M.has_formatter(filetype) then
+  --   enable = client.name == "null-ls"
+  -- else
+  --   enable = not (client.name == "null-ls")
+  -- end
 
-  if not enable then
-    return
-  end
+  -- if not enable then
+  --   return
+  -- end
 
   client.server_capabilities.documentFormattingProvder = enable
   client.server_capabilities.documentRangeFormattingProvider = enable
