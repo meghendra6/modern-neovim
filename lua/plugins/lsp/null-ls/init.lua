@@ -23,6 +23,7 @@ local sources = {
   b.formatting.clang_format,
   b.formatting.clang_format.with {
     filetypes = { "cpp", "c", "cc" },
+    extra_args = { "-style=file:/home/meghendra/.clang_format" },
   },
   b.formatting.prettierd,
   b.formatting.shfmt,
