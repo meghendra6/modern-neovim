@@ -12,7 +12,6 @@ return {
     config = true,
   },
 
-
   -- User interface
   {
     "stevearc/dressing.nvim",
@@ -133,7 +132,9 @@ return {
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    run = function()
+      require("nvim-treesitter.install").update { with_sync = true }
+    end,
     config = function()
       require("config.treesitter").setup()
     end,
@@ -254,7 +255,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("aerial").setup {
-        backends = {"lsp", "treesitter" },
+        backends = { "lsp", "treesitter" },
         on_attach = function(bufnr)
           vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
           vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
@@ -300,11 +301,12 @@ return {
       require("bqf").setup()
     end,
   },
-  { "kevinhwang91/nvim-hlslens",
+  {
+    "kevinhwang91/nvim-hlslens",
     event = "BufReadPre",
     enabled = false,
     config = function()
-      require('hlslens').setup()
+      require("hlslens").setup()
     end,
   },
   { "nvim-pack/nvim-spectre", module = "spectre", keys = { "<leader>s" } },
@@ -404,18 +406,14 @@ return {
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
-    cmd = { "GitBlameToggle" }
+    cmd = { "GitBlameToggle" },
   },
   {
     "knsh14/vim-github-link",
     event = "VeryLazy",
-    cmd = { "GetCommitLink",
-      "GetCurrentBranchLink",
-      "GetCurrentCommitLink" }
+    cmd = { "GetCommitLink", "GetCurrentBranchLink", "GetCurrentCommitLink" },
   },
-  {"segeljakt/vim-silicon",
-    cmd = { "Silicon" }
-  },
+  { "segeljakt/vim-silicon", cmd = { "Silicon" } },
   {
     "mattn/vim-gist",
     event = "VeryLazy",
@@ -439,7 +437,7 @@ return {
     end,
   },
 
-    -- Motions
+  -- Motions
   {
     "andymass/vim-matchup",
     event = "CursorMoved",
@@ -448,7 +446,7 @@ return {
   {
     "wellle/targets.vim",
     event = "CursorMoved",
-    enabled = true
+    enabled = true,
   },
   {
     "unblevable/quick-scope",
@@ -472,14 +470,14 @@ return {
   {
     "chaoren/vim-wordmotion",
     event = "VeryLazy",
-    fn = { "<Plug>WordMotion_w" }
+    fn = { "<Plug>WordMotion_w" },
   },
 
   -- Buffer
   {
     "kazhala/close-buffers.nvim",
     event = "VeryLazy",
-    cmd = { "BDelete", "BWipeout" }
+    cmd = { "BDelete", "BWipeout" },
   },
   {
     "matbme/JABS.nvim",
@@ -533,7 +531,7 @@ return {
   {
     "AndrewRadev/splitjoin.vim",
     keys = { "gS", "gJ" },
-    enabled = true
+    enabled = true,
   },
 
   -- Completion
