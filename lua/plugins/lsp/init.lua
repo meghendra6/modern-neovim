@@ -71,6 +71,8 @@ return {
     ensure_installed = {
       "stylua",
       "ruff",
+      "debugpy",
+      "codelldb",
     },
     config = function(plugin)
       require("mason").setup()
