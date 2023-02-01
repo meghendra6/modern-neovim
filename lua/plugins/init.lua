@@ -623,4 +623,14 @@ return {
     "lyuts/vim-rtags",
     event = "VeryLazy",
   },
+
+  -- Renamer
+  {
+    "filipdutescu/renamer.nvim",
+    event = "VeryLazy",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+    config = function()
+      require("renamer").setup()
+    end,
+  },
 }

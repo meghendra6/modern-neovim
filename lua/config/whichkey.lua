@@ -191,7 +191,7 @@ local function normal_keymap()
       },
     },
 
-    r = {
+    e = {
       name = "Refactor",
       i = { [[<cmd>lua require('refactoring').refactor('Inline Variable')<cr>]], "Inline Variable" },
       b = { [[<cmd>lua require('refactoring').refactor('Exract Block')<cr>]], "Extract Block" },
