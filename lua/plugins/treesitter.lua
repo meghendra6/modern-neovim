@@ -51,7 +51,7 @@ return {
           "yaml",
         },
         highlight = { enable = true },
-        indent = { enable = true, disable = { "python" } },
+        indent = { enable = true, disable = { "python", "c" } },
         incremental_selection = {
           enable = true,
           keymaps = {

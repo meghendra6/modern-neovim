@@ -551,7 +551,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       { "hrsh7th/cmp-nvim-lsp", module = { "cmp_nvim_lsp" } },
       "hrsh7th/cmp-nvim-lsp-signature-help",
-      "lukas-reineke/cmp-rg",
+      -- "lukas-reineke/cmp-rg",
       "davidsierradz/cmp-conventionalcommits",
       { "onsails/lspkind-nvim", module = { "lspkind" } },
       -- "hrsh7th/cmp-calc",
