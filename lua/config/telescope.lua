@@ -162,11 +162,7 @@ function M.setup()
         firefox_profile_name = nil,
       },
       project = {
-        base_dirs = {
-          '~/work/server2/sapeon_sdk/',
-          '~/work/server2/sapeon_sdk/SapeonRT/',
-          '/Users/scottlee/work/server2/sapeon_sdk/sapeon_compiler',
-        },
+        base_dirs = {},
         hidden_files = false,
         theme = "dropdown",
         order_by = "asc",
