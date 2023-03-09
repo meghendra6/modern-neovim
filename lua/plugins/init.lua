@@ -5,7 +5,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     config = { default = true },
   },
-  { "nacro90/numb.nvim", event = "BufReadPre", config = true },
+  { "nacro90/numb.nvim",   event = "BufReadPre",           config = true },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
@@ -140,19 +140,19 @@ return {
     end,
     dependencies = {
       { "nvim-treesitter/nvim-treesitter-textobjects", event = "BufReadPre" },
-      { "windwp/nvim-ts-autotag", event = "InsertEnter" },
+      { "windwp/nvim-ts-autotag",                      event = "InsertEnter" },
       { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
-      { "p00f/nvim-ts-rainbow", event = "BufReadPre" },
-      { "RRethy/nvim-treesitter-textsubjects", event = "BufReadPre" },
-      { "nvim-treesitter/playground", cmd = { "TSPlaygroundToggle" } },
+      { "p00f/nvim-ts-rainbow",                        event = "BufReadPre" },
+      { "RRethy/nvim-treesitter-textsubjects",         event = "BufReadPre" },
+      { "nvim-treesitter/playground",                  cmd = { "TSPlaygroundToggle" } },
       -- {
       --   "lewis6991/spellsitter.nvim",
       --   config = function()
       --     require("spellsitter").setup()
       --   end,
       -- },
-      { "nvim-treesitter/nvim-treesitter-context", event = "BufReadPre", enabled = false },
-      { "mfussenegger/nvim-treehopper", module = { "tsht" }, enabled = false },
+      { "nvim-treesitter/nvim-treesitter-context",     event = "BufReadPre",          enabled = false },
+      { "mfussenegger/nvim-treehopper",                module = { "tsht" },           enabled = false },
       {
         "m-demare/hlargs.nvim",
         config = function()
@@ -413,7 +413,7 @@ return {
     event = "VeryLazy",
     cmd = { "GetCommitLink", "GetCurrentBranchLink", "GetCurrentCommitLink" },
   },
-  { "segeljakt/vim-silicon", cmd = { "Silicon" } },
+  { "segeljakt/vim-silicon",  cmd = { "Silicon" } },
   {
     "mattn/vim-gist",
     event = "VeryLazy",
@@ -632,5 +632,18 @@ return {
     config = function()
       require("renamer").setup()
     end,
+  },
+
+  -- yank to system clipboard on remote environment
+  {
+    "ojroques/nvim-osc52",
+    event = "VeryLazy",
+    config = function()
+      require("osc52").setup {}
+      vim.keymap.set("n", "<leader>c", require("osc52").copy_operator, { expr = true })
+      vim.keymap.set("n", "<leader>cc", "<leader>c_", { remap = true })
+      vim.keymap.set("x", "<leader>c", require("osc52").copy_visual)
+    end,
+    enabled = true,
   },
 }
