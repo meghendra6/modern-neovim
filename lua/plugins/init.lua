@@ -103,4 +103,16 @@ return {
       { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
     },
   },
+  -- yank to system clipboard on remote environment
+  {
+    "ojroques/nvim-osc52",
+    event = "VeryLazy",
+    config = function()
+      require("osc52").setup {}
+      vim.keymap.set("n", "<leader>c", require("osc52").copy_operator, { expr = true })
+      vim.keymap.set("n", "<leader>cc", "<leader>c_", { remap = true })
+      vim.keymap.set("x", "<leader>c", require("osc52").copy_visual)
+    end,
+    enabled = true,
+  },
 }
