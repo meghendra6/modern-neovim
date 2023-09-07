@@ -45,6 +45,8 @@ opt.title = true
 opt.undofile = true
 opt.updatetime = 200
 opt.wildmode = "longest:full,full"
+vim.cmd [[highlight TrailSpace ctermbg=red guibg=red]]
+vim.cmd [[match TrailSpace /\s\+$/]]
 
 if vim.fn.has "nvim-0.9.0" == 1 then
   opt.splitkeep = "screen"
