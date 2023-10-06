@@ -13,6 +13,7 @@ function M.format()
   local have_nls = #require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") > 0
 
   vim.lsp.buf.format {
+    async = true,
     bufnr = buf,
     filter = function(client)
       if have_nls then

@@ -71,13 +71,13 @@ return {
       vim.api.nvim_set_keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), { desc = "Decrement", noremap = true })
     end,
   },
-  {
-    "andymass/vim-matchup",
-    event = { "BufReadPost" },
-    config = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end,
-  },
+  --  {
+  --    "andymass/vim-matchup",
+  --    event = { "BufReadPost" },
+  --    config = function()
+  --      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+  --    end,
+  --  },
   { "tpope/vim-surround", event = "BufReadPre" },
   {
     "numToStr/Comment.nvim",

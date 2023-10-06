@@ -1,0 +1,145 @@
+From 2383b67b57c5ec787d781428a93e0443411f8a80 Mon Sep 17 00:00:00 2001
+From: Scott Lee <scott.lee@sapeon.com>
+Date: Thu, 7 Sep 2023 13:30:31 +0900
+Subject: [PATCH] fix colorscheme
+
+---
+ lua/config/options.lua           |  2 +
+ lua/plugins/colorscheme/init.lua | 87 +++++++++++++++++++++++++-------
+ lua/plugins/init.lua             |  6 +++
+ 3 files changed, 77 insertions(+), 18 deletions(-)
+
+diff --git a/lua/config/options.lua b/lua/config/options.lua
+index 6d472c4..9c2efc9 100644
+--- a/lua/config/options.lua
++++ b/lua/config/options.lua
+@@ -45,6 +45,8 @@ opt.title = true
+ opt.undofile = true
+ opt.updatetime = 200
+ opt.wildmode = "longest:full,full"
++vim.cmd [[highlight TrailSpace ctermbg=red guibg=red]]
++vim.cmd [[match TrailSpace /\s\+$/]]
+ 
+ if vim.fn.has "nvim-0.9.0" == 1 then
+   opt.splitkeep = "screen"
+diff --git a/lua/plugins/colorscheme/init.lua b/lua/plugins/colorscheme/init.lua
+index d23f737..de0a9b2 100644
+--- a/lua/plugins/colorscheme/init.lua
++++ b/lua/plugins/colorscheme/init.lua
+@@ -11,24 +11,24 @@ return {
+       }
+     end,
+   },
+-  {
+-    "folke/tokyonight.nvim",
+-    lazy = false,
+-    priority = 1000,
+-    opts = {
+-      style = "storm",
+-      transparent = false,
+-      styles = {
+-        sidebars = "transparent",
+-        floats = "transparent",
+-      },
+-    },
+-    config = function(_, opts)
+-      local tokyonight = require "tokyonight"
+-      tokyonight.setup(opts)
+-      tokyonight.load()
+-    end,
+-  },
++--  {
++--    "folke/tokyonight.nvim",
++--    lazy = false,
++--    priority = 1000,
++--    opts = {
++--      style = "storm",
++--      transparent = false,
++--      styles = {
++--        sidebars = "transparent",
++--        floats = "transparent",
++--      },
++--    },
++--    config = function(_, opts)
++--      local tokyonight = require "tokyonight"
++--      tokyonight.setup(opts)
++--      tokyonight.load()
++--    end,
++--  },
+   {
+     "catppuccin/nvim",
+     lazy = false,
+@@ -41,4 +41,55 @@ return {
+       require("gruvbox").setup()
+     end,
+   },
++  {
++    "EdenEast/nightfox.nvim",
++    lazy = false,
++    config = function()
++      require("nightfox").setup({
++        options = {
++          -- Compiled file's destination location
++          compile_path = vim.fn.stdpath("cache") .. "/nightfox",
++          compile_file_suffix = "_compiled", -- Compiled file suffix
++          transparent = false,     -- Disable setting background
++          terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
++          dim_inactive = false,    -- Non focused panes set to alternative background
++          module_default = true,   -- Default enable value for modules
++          colorblind = {
++            enable = false,        -- Enable colorblind support
++            simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
++            severity = {
++              protan = 0,          -- Severity [0,1] for protan (red)
++              deutan = 0,          -- Severity [0,1] for deutan (green)
++              tritan = 0,          -- Severity [0,1] for tritan (blue)
++            },
++          },
++          styles = {               -- Style to be applied to different syntax groups
++            comments = "NONE",     -- Value is any valid attr-list value `:help attr-list`
++            conditionals = "NONE",
++            constants = "NONE",
++            functions = "NONE",
++            keywords = "NONE",
++            numbers = "NONE",
++            operators = "NONE",
++            strings = "NONE",
++            types = "NONE",
++            variables = "NONE",
++          },
++          inverse = {             -- Inverse highlight for different types
++            match_paren = false,
++            visual = false,
++            search = false,
++          },
++          modules = {             -- List of various plugins and additional options
++            -- ...
++          },
++        },
++        palettes = {},
++        specs = {},
++        groups = {},
++      })
++      -- setup must be called before loading
++      vim.cmd("colorscheme nightfox")
++    end,
++  },
+ }
+diff --git a/lua/plugins/init.lua b/lua/plugins/init.lua
+index 26cee6a..cbdd926 100644
+--- a/lua/plugins/init.lua
++++ b/lua/plugins/init.lua
+@@ -1,4 +1,10 @@
+ return {
++  {
++    "nvim-treesitter/nvim-treesitter",
++    opts = function(_, opts)
++      opts.ignore_install = { "help" }
++    end,
++  },
+   "nvim-lua/plenary.nvim",
+   "MunifTanjim/nui.nvim",
+   {
+-- 
+2.34.1
+
