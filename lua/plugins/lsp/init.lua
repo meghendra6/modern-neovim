@@ -7,7 +7,7 @@ return {
       { "folke/neodev.nvim", opts = {
         library = { plugins = { "neotest", "nvim-dap-ui" }, types = true },
       } },
-      { "j-hui/fidget.nvim", config = true },
+      { "j-hui/fidget.nvim", config = true, tag = "legacy" },
       { "smjonas/inc-rename.nvim", config = true },
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -98,7 +98,7 @@ return {
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
     },
-    enabled = false, -- use lspsaga
+    -- enabled = false, -- use lspsaga
     config = true,
   },
   {

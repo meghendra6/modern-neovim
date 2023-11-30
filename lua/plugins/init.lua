@@ -1,5 +1,5 @@
 return {
-  {
+{
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       opts.ignore_install = { "help" }
@@ -21,13 +21,11 @@ return {
   { "nacro90/numb.nvim", event = "BufReadPre", config = true },
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
-      -- char = "▏",
-      char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "NvimTree", "Trouble", "lazy" },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
+      -- char = '┊',
+      --show_trailing_blankline_indent = false
     },
   },
   {

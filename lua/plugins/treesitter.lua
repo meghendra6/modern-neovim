@@ -44,7 +44,6 @@ return {
       },
       highlight = { enable = true, additional_vim_regex_highlighting = { "org", "markdown" } },
       indent = { enable = true, disable = { "python" } },
-      context_commentstring = { enable = true },
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -106,6 +105,8 @@ return {
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
+      require("ts_context_commentstring").setup {}
+      vim.g.skip_ts_context_commentstring_module = true
     end,
   },
   {
