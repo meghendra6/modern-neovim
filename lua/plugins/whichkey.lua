@@ -20,9 +20,13 @@ return {
       wk.setup {
         show_help = true,
         plugins = { spelling = true },
-        key_labels = { ["<leader>"] = "SPC" },
-        triggers = "auto",
-        window = {
+        replace = { ["<leader>"] = "SPC" },
+        -- triggers = "auto",
+        triggers = {
+          { "<auto>", mode = "nixsotc" },
+          { "a", mode = { "n", "v" } },
+        },
+        win = {
           border = "single", -- none, single, double, shadow
           position = "bottom", -- bottom, top
           margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
@@ -37,49 +41,63 @@ return {
         },
       }
       wk.register({
-        w = { "<cmd>update!<CR>", "Save" },
-        -- stylua: ignore
-        q = { name = "Quit",
-          q = { function() require("utils").quit() end, "Quit", },
-          t = { "<cmd>tabclose<cr>", "Close Tab" },
-        },
-        b = { name = "+Buffer" },
-        d = { name = "+Debug" },
-        f = { name = "+File" },
-        h = { name = "+Help" },
-        j = { name = "+Jump" },
-        g = { name = "+Git", h = { name = "Hunk" }, t = { name = "Toggle" } },
-        n = { name = "+Notes" },
-        p = { name = "+Project" },
-        -- o = { name = "+Orgmode" },
-        -- r = { name = "+Run" },
-        t = { name = "+Test", N = { name = "Neotest" }, o = { "Overseer" } },
-        v = { name = "+View" },
-        z = { name = "+System" },
-        -- stylua: ignore
-        s = {
-          name = "+Search",
-          c = { function() require("utils.coding").cht() end, "Cheatsheets", },
-          o = { function() require("utils.coding").stack_overflow() end, "Stack Overflow", },
-          -- n = { name = "+Noice" },
-        },
-        c = {
-          name = "+Code",
-          g = { name = "Annotation" },
-          x = {
-            name = "Swap Next",
-            f = "Function",
-            p = "Parameter",
-            c = "Class",
-          },
-          X = {
-            name = "Swap Previous",
-            f = "Function",
-            p = "Parameter",
-            c = "Class",
-          },
-        },
+--        w = { "<cmd>update!<CR>", "Save" },
+--        -- stylua: ignore
+--        q = { name = "Quit",
+--          q = { function() require("utils").quit() end, "Quit", },
+--          t = { "<cmd>tabclose<cr>", "Close Tab" },
+--        },
+--        b = { name = "+Buffer" },
+--        d = { name = "+Debug" },
+--        f = { name = "+File" },
+--        h = { name = "+Help" },
+--        j = { name = "+Jump" },
+--        g = { name = "+Git", h = { name = "Hunk" }, t = { name = "Toggle" } },
+--        n = { name = "+Notes" },
+--        p = { name = "+Project" },
+--        -- o = { name = "+Orgmode" },
+--        -- r = { name = "+Run" },
+--        t = { name = "+Test", N = { name = "Neotest" }, o = { "Overseer" } },
+--        v = { name = "+View" },
+--        z = { name = "+System" },
+--        -- stylua: ignore
+--        s = {
+--          name = "+Search",
+--          c = { function() require("utils.coding").cht() end, "Cheatsheets", },
+--          o = { function() require("utils.coding").stack_overflow() end, "Stack Overflow", },
+--          -- n = { name = "+Noice" },
+--        },
+--        c = {
+--          name = "+Code",
+--          g = { name = "Annotation" },
+--          x = {
+--            name = "Swap Next",
+--            f = "Function",
+--            p = "Parameter",
+--            c = "Class",
+--          },
+--          X = {
+--            name = "Swap Previous",
+--            f = "Function",
+--            p = "Parameter",
+--            c = "Class",
+--          },
+--        },
       }, { prefix = "<leader>", mode = { "n", "v" } })
+    end,
+  },
+  {
+    "echasnovski/mini.icons",
+    opts = {},
+    lazy = true,
+    specs = {
+      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+    },
+    init = function()
+      package.preload["nvim-web-devicons"] = function()
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
     end,
   },
 }

@@ -7,6 +7,7 @@ local M = {
       { "nvim-telescope/telescope-dap.nvim" },
       { "jbyuki/one-small-step-for-vimkind" },
       { "jay-babu/mason-nvim-dap.nvim" },
+      { "nvim-neotest/nvim-nio" },
     },
   -- stylua: ignore
   keys = {

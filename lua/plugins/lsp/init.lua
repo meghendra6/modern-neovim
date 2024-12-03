@@ -91,16 +91,36 @@ return {
   },
   { "jay-babu/mason-null-ls.nvim", opts = { ensure_installed = nil, automatic_installation = true, automatic_setup = false } },
   {
-    "utilyre/barbecue.nvim",
-    event = "VeryLazy",
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    ft = { "c", "cpp", "lua", "rust", "go" },
+    config = function()
+      require("lspsaga").setup {
+        symbol_in_winbar = {
+          enable = true,
+          in_custom = false,
+          separator = "  ",
+          show_file = true,
+          click_support = false,
+        },
+      }
+    end,
     dependencies = {
-      "neovim/nvim-lspconfig",
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons",
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
     },
-    -- enabled = false, -- use lspsaga
-    config = true,
   },
+--  {
+--    "utilyre/barbecue.nvim",
+--    event = "VeryLazy",
+--    dependencies = {
+--      "neovim/nvim-lspconfig",
+--      "SmiteshP/nvim-navic",
+--      "nvim-tree/nvim-web-devicons",
+--    },
+--    enabled = false, -- use lspsaga
+--    config = true,
+--  },
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
@@ -109,10 +129,5 @@ return {
       { "<leader>cd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics" },
       { "<leader>cD", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
     },
-  },
-  {
-    "glepnir/lspsaga.nvim",
-    event = "VeryLazy",
-    config = true,
   },
 }
