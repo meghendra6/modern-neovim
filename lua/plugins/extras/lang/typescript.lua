@@ -11,13 +11,13 @@ return {
     dependencies = { "jose-elias-alvarez/typescript.nvim" },
     opts = {
       servers = {
-        tsserver = {},
+        ts_ls = {},
       },
       setup = {
-        tsserver = function(_, opts)
+        ts_ls = function(_, opts)
           local lsp_utils = require "plugins.lsp.utils"
           lsp_utils.on_attach(function(client, buffer)
-            if client.name == "tsserver" then
+            if client.name == "ts_ls" then
               -- stylua: ignore
               vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
               vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
