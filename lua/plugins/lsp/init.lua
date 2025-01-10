@@ -84,6 +84,7 @@ return {
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.black,
           nls.builtins.formatting.shfmt,
+          nls.builtins.formatting.clang_format,
           nls.builtins.diagnostics.ruff.with { extra_args = { "--max-line-length=180" } },
         },
       }
@@ -110,17 +111,17 @@ return {
       "nvim-tree/nvim-web-devicons", -- optional
     },
   },
---  {
---    "utilyre/barbecue.nvim",
---    event = "VeryLazy",
---    dependencies = {
---      "neovim/nvim-lspconfig",
---      "SmiteshP/nvim-navic",
---      "nvim-tree/nvim-web-devicons",
---    },
---    enabled = false, -- use lspsaga
---    config = true,
---  },
+  --  {
+  --    "utilyre/barbecue.nvim",
+  --    event = "VeryLazy",
+  --    dependencies = {
+  --      "neovim/nvim-lspconfig",
+  --      "SmiteshP/nvim-navic",
+  --      "nvim-tree/nvim-web-devicons",
+  --    },
+  --    enabled = false, -- use lspsaga
+  --    config = true,
+  --  },
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
