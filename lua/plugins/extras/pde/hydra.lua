@@ -268,8 +268,8 @@ return {
     event = "VeryLazy",
     config = function(_, _)
       local hydra = require "hydra"
-      hydra(gitsigns_menu())
-      hydra(dap_menu())
+--      hydra(gitsigns_menu())
+--      hydra(dap_menu())
       hydra(quick_menu())
     end,
   },
